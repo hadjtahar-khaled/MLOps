@@ -2,7 +2,8 @@ name: MLOps
 on: [push]
 jobs:
   run:
-    runs-on: [ubuntu-latest]
+   # runs-on: [ubuntu-latest]
+    runs-on: echowuhao/act_base:latest
     container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
