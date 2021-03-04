@@ -13,18 +13,16 @@ jobs:
 
           # Your ML workflow goes here
           pip install -r requirements.txt
-          python train.py
-    - name: Build the docker-compose stack
-      run: docker-compose -f docker-compose.yml -f docker-compose.ci.yml up -d
-    - name: Check running containers
-      run: docker ps -a
-    - name: Check logs
-      run: docker logs backend
-      name: Build the docker-compose stack
-      run: docker-compose -f docker-compose.yml -f docker-compose.ci.yml up -d
-    - name: Check running containers
-      run: docker ps -a
-    - name: Check logs
-      run: docker logs backend
-
-      
+          python train.py 
+      - name: Build the docker-compose stack
+        run: docker-compose -f docker-compose.yml -f docker-compose.ci.yml up -d
+      - name: Check running containers
+        run: docker ps -a
+      - name: Check logs
+        run: docker logs backend
+      - name: Build the docker-compose stack
+        run: docker-compose -f docker-compose.yml -f docker-compose.ci.yml up -d
+      - name: Check running containers
+        run: docker ps -a
+      - name: Check logs
+        run: docker logs backend
