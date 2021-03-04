@@ -1,0 +1,9 @@
+json
+requests
+flask
+numpy
+pickle
+pandas
+#numpy==1.16.0
+#pandas==0.22.0
+sklearn
