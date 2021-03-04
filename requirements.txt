@@ -1,5 +1,5 @@
-json
-requests
+#json
+#requests
 flask
 numpy
 pickle
