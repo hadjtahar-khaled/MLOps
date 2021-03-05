@@ -5,6 +5,12 @@ jobs:
     runs-on: [ubuntu-latest]
    
     container: docker://dvcorg/cml-py3:latest
+    strategy:
+      matrix:
+        test-file:
+          - run.test.py
+          - request.test.py
+          
     steps:
       - uses: actions/checkout@v2
       - name: "Train my model"
@@ -40,8 +46,9 @@ jobs:
         run: docker-compose -f docker-compose.yml up -d
       - name: Check running containers
         run: docker ps -a
-      - name: run app
-        run: python app.py
-      - name: run requeste
-        run: python request.py
+      - name: run app and request
+        run: npx jest ${{ matrix['test-file'] }}
+        #run: python app.py
+      #- name: run requeste
+       # run: python request.py
       
