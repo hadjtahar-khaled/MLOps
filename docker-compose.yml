@@ -236,14 +236,14 @@ services:
       - "27019:27017"
     restart: always
 
-networks:
-  localnet:
-    attachable: true
+#networks:
+ # localnet:
+  #  attachable: true
 
-volumes:
-  rs1:
-  rs2:
-  rs3:
+#volumes:
+ # rs1:
+  #rs2:
+  #rs3:
 
 
   spark-master:
