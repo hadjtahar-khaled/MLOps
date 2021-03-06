@@ -48,8 +48,8 @@ jobs:
       - name: run app and request
         #run: npx jest ${{ matrix['test-file'] }}
         run: |
-          python app.py
-          python request.py
+          python app.py &
+          python request.py &
       #- name: run requeste
        # run: python request.py
       
