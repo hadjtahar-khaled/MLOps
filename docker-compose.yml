@@ -220,7 +220,7 @@ services:
     volumes:
       - rs2:/data/db
     networks:
-      - localnet
+      - net
     ports:
       - "27018:27017"
     restart: always
