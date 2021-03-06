@@ -318,3 +318,7 @@ services:
     ports:
      - 50075:50075
      - 50010:50010
+volumes:
+  rs1:
+  rs2:
+  rs3:
