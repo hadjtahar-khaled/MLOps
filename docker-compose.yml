@@ -55,7 +55,7 @@ services:
       - zookeeper
       - broker
     ports:
-      - "8081:8081"
+      - "8089:8089"
     networks:
       - net
     environment:
