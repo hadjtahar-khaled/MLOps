@@ -1,6 +1,7 @@
 #!/bin/bash
-
+apt install lsof
 set -e
+
 (
 if lsof -Pi :27017 -sTCP:LISTEN -t >/dev/null ; then
     echo "Please terminate the local mongod on 27017"
