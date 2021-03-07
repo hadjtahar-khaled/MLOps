@@ -46,7 +46,7 @@ jobs:
       - name: Check running containers
         run: docker ps -a
       - name: testing sinking and sourcing.sh
-        run: run.sh
+        run: ./run.sh
       - name: run app and request
         #run: npx jest ${{ matrix['test-file'] }}
         run: |
