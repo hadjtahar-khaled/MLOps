@@ -47,6 +47,7 @@ jobs:
         run: docker ps -a
       - name: setting connector
         run: |
+          apt-get install jq
           docker-compose exec -T mongo1 /usr/bin/mongo --eval '''if (rs.status()["ok"] == 0) { rsconf = {
           _id : "rs0",
           members: [
