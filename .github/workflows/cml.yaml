@@ -5,19 +5,14 @@ jobs:
     runs-on: [ubuntu-latest]
    
     container: docker://dvcorg/cml-py3:latest
-    strategy:
-      matrix:
-        test-file:
-          - run.test.py
-          - request.test.py
-          
+             
     steps:
       - uses: actions/checkout@v2
       - name: "Train my model"
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
-
+          
           # Your ML workflow goes here
           pip install -r requirements.txt
           python train.py 
@@ -37,6 +32,10 @@ jobs:
           service --status-all
           service docker start
           docker-compose ps
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
       
       - name: Build the docker-compose stack
         run: docker-compose -f docker-compose.yml up -d
@@ -46,9 +45,17 @@ jobs:
         run: docker-compose -f docker-compose.yml up -d
       - name: Check running containers
         run: docker ps -a
+      
+      - name: testing sinking and sourcing.sh
+        run:  |
+          chmod +x ./run.sh
+          #./run.sh
       - name: run app and request
-        run: npx jest ${{ matrix['test-file'] }}
-        #run: python app.py
-      #- name: run requeste
-       # run: python request.py
+        #run: npx jest ${{ matrix['test-file'] }}
+        run: |
+          python app.py &
+          python request.py &
+      - name: build Dockerfile
+        run: docker build -t test:latest .
+
       
