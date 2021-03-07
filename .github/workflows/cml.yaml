@@ -60,7 +60,7 @@ jobs:
           }
           rs.conf();'''
           
-          curl 172.22.0.0:8083/connector-plugins | jq
+          curl 0.0.0.0:8083/connector-plugins | jq
 
           [
           {
