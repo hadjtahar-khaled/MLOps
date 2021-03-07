@@ -59,7 +59,7 @@ jobs:
           }
           rs.conf();'''
           
-          curl localhost:8083/connector-plugins | jq
+          curl 172.22.0.0:8083/connector-plugins | jq
 
           [
           {
