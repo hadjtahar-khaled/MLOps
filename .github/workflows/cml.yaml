@@ -49,7 +49,7 @@ jobs:
       - name: testing sinking and sourcing.sh
         run:  |
           chmod +x ./run.sh
-          ./run.sh
+          #./run.sh
       - name: run app and request
         #run: npx jest ${{ matrix['test-file'] }}
         run: |
