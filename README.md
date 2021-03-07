@@ -5,3 +5,5 @@ running the train
 running the app (flask)   
 generating the request to get the answer from flask   
 creating a docker file  
+
+it's not yet finished u can find last update on brach 2
