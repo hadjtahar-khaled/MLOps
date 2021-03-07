@@ -55,6 +55,7 @@ jobs:
         run: |
           python app.py &
           python request.py &
-      #- name: run requeste
-       # run: python request.py
+      - name: build Dockerfile
+        run: docker build -t test:latest .
+
       
