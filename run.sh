@@ -10,16 +10,16 @@ fi
 )
 
 echo "Building the MongoDB Kafka Connector"
-(
-cd ..
+#(
+#cd ..
 #./gradlew clean createConfluentArchive
-echo -e "Unzipping the confluent archive plugin....\n"
-unzip -d ./build/confluent ./build/confluent/*.zip
-find ./build/confluent -maxdepth 1 -type d ! -wholename "./build/confluent" -exec mv {} ./build/confluent/kafka-connect-mongodb \;
-)
+#echo -e "Unzipping the confluent archive plugin....\n"
+#unzip -d ./build/confluent ./build/confluent/*.zip
+#find ./build/confluent -maxdepth 1 -type d ! -wholename "./build/confluent" -exec mv {} ./build/confluent/kafka-connect-mongodb \;
+#)
 
-echo "Starting docker ."
-docker-compose up -d --build
+#echo "Starting docker ."
+#docker-compose up -d --build
 
 function clean_up {
     echo -e "\n\nSHUTTING DOWN\n\n"
